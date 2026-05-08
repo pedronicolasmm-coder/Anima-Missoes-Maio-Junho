@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anima Missões — Plano de Carrosséis</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1a5c2a;
+    --verde-escuro: #0f3a1a;
+    --verde-medio: #2d7a3e;
+    --vermelho: #c0392b;
+    --vermelho-escuro: #922b21;
+    --branco: #ffffff;
+    --creme: #fdf6ec;
+    --cinza: #f0ede8;
+    --texto: #1a1a1a;
+    --dourado: #c9a84c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--creme);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--verde-escuro);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px 56px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-tag {
+    display: inline-block;
+    background: var(--vermelho);
+    color: var(--branco);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--branco);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  header h1 span {
+    color: var(--dourado);
+  }
+
+  header p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    border-left: 3px solid var(--dourado);
+    padding-left: 14px;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--branco);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .header-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 80% 50%, rgba(192,57,43,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(45,122,62,0.2) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  .header-pattern {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
+    opacity: 0.06;
+    z-index: 1;
+  }
+
+  /* LEGENDA DE TIPOS */
+  .legend-bar {
+    background: var(--verde);
+    padding: 16px 32px;
+  }
+
+  .legend-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--vermelho);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--verde-escuro);
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+
+  /* ESTRATÉGIA */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 2px solid var(--verde-escuro);
+    margin-bottom: 80px;
+    overflow: hidden;
+  }
+
+  .strategy-col {
+    padding: 28px 24px;
+    border-right: 2px solid var(--verde-escuro);
+    position: relative;
+  }
+
+  .strategy-col:last-child { border-right: none; }
+
+  .strategy-col.featured {
+    background: var(--verde-escuro);
+    color: var(--branco);
+  }
+
+  .strategy-col.featured .s-title { color: var(--dourado); }
+  .strategy-col.featured .s-count { color: rgba(255,255,255,0.4); }
+  .strategy-col.featured .s-desc { color: rgba(255,255,255,0.8); }
+  .strategy-col.featured .s-tag { background: var(--vermelho); color: white; }
+
+  .s-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    color: rgba(0,0,0,0.07);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+
+  .strategy-col.featured .s-num { color: rgba(255,255,255,0.06); }
+
+  .s-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: var(--verde);
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .s-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--verde-escuro);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .s-count {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .s-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #555;
+  }
+
+  /* CARDS DE CARROSSEL */
+  .carrosseis-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .carousel-card {
+    border: 2px solid var(--verde-escuro);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s;
+  }
+
+  .carousel-card:hover { transform: translateY(-3px); }
+
+  .card-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 28px;
+    background: var(--verde-escuro);
+    color: white;
+  }
+
+  .card-header.vermelho { background: var(--vermelho-escuro); }
+  .card-header.misto {
+    background: linear-gradient(135deg, var(--verde-escuro) 60%, var(--vermelho-escuro));
+  }
+
+  .card-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: rgba(255,255,255,0.2);
+    line-height: 1;
+    min-width: 48px;
+  }
+
+  .card-header-info { flex: 1; }
+
+  .card-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 4px;
+  }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  .card-badge {
+    background: var(--dourado);
+    color: var(--verde-escuro);
+    font-size: 10px;
+    font-weight: 900;
+    padding: 5px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .card-badge.exp { background: var(--vermelho); color: white; }
+  .card-badge.outro { background: rgba(255,255,255,0.15); color: white; }
+
+  .card-body {
+    padding: 28px;
+    background: white;
+  }
+
+  .objetivo-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .objetivo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .obj-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--verde-escuro);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .obj-icon.red { background: var(--vermelho); }
+
+  .obj-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 2px;
+  }
+
+  .obj-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--texto);
+  }
+
+  /* SLIDES */
+  .slides-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .slides-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+  }
+
+  .slides-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 700px) {
+    .slides-row { grid-template-columns: repeat(3, 1fr); }
+    .strategy-grid { grid-template-columns: 1fr; }
+  }
+
+  .slide-item {
+    position: relative;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 22px;
+    height: 22px;
+    background: var(--verde-escuro);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .slide-card {
+    border: 2px solid #e8e8e8;
+    padding: 14px 12px 12px;
+    height: 100%;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .slide-card:hover { border-color: var(--verde); }
+
+  .slide-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .slide-card.abertura::before { background: var(--vermelho); }
+  .slide-card.conteudo::before { background: var(--verde); }
+  .slide-card.prova::before { background: var(--dourado); }
+  .slide-card.cta::before { background: var(--verde-escuro); }
+  .slide-card.diferencial::before { background: #7b68ee; }
+
+  .slide-tipo {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-top: 8px;
+  }
+
+  .slide-tipo.abertura { color: var(--vermelho); }
+  .slide-tipo.conteudo { color: var(--verde); }
+  .slide-tipo.prova { color: #b8860b; }
+  .slide-tipo.cta { color: var(--verde-escuro); }
+  .slide-tipo.diferencial { color: #7b68ee; }
+
+  .slide-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--verde-escuro);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .slide-desc {
+    font-size: 11px;
+    color: #777;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .copy-box {
+    background: var(--cinza);
+    border-left: 4px solid var(--verde);
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+
+  .copy-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 8px;
+  }
+
+  .copy-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  .copy-cta {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--vermelho);
+  }
+
+  .tip-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .tip {
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--verde-escuro);
+    color: white;
+    font-weight: 600;
+  }
+
+  .tip.red { background: var(--vermelho); }
+  .tip.gold { background: var(--dourado); color: var(--verde-escuro); }
+  .tip.light { background: #e8f5e9; color: var(--verde); }
+
+  /* CALENDÁRIO */
+  .calendar-section {
+    margin-bottom: 80px;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--verde-escuro);
+    border: 2px solid var(--verde-escuro);
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .cal-cell {
+    background: white;
+    padding: 16px 18px;
+  }
+
+  .cal-week {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+
+  .cal-post-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--verde-escuro);
+    margin-bottom: 4px;
+  }
+
+  .cal-post-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+  }
+
+  .cal-post-tag.exp { background: var(--vermelho); color: white; }
+  .cal-post-tag.outros { background: var(--verde); color: white; }
+
+  .cal-post-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+
+  /* ALERTA */
+  .alert-box {
+    background: var(--verde-escuro);
+    color: white;
+    padding: 24px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+  }
+
+  .alert-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .alert-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--dourado);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--verde-escuro);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .footer-logo span { color: var(--dourado); }
+
+  footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--verde-escuro), var(--vermelho), var(--dourado), var(--verde-escuro));
+    margin-bottom: 64px;
+    opacity: 0.3;
+  }
+
+  /* LEGEND LEGENDA TIPOS SLIDE */
+  .tipo-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    background: #f9f7f4;
+    border: 1px solid #e8e8e8;
+  }
+
+  .tipo-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  .tipo-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+  }
+
+  .intro-note {
+    background: #fff8e8;
+    border: 1px solid var(--dourado);
+    border-left: 4px solid var(--dourado);
+    padding: 16px 20px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-bg"></div>
+  <svg class="header-pattern" viewBox="0 0 200 200" fill="none">
+    <path d="M100 10 L190 55 L190 145 L100 190 L10 145 L10 55 Z" stroke="white" stroke-width="1" fill="none"/>
+    <path d="M100 30 L170 67 L170 133 L100 170 L30 133 L30 67 Z" stroke="white" stroke-width="1" fill="none"/>
+    <path d="M100 50 L150 79 L150 121 L100 150 L50 121 L50 79 Z" stroke="white" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="100" r="40" stroke="white" stroke-width="1" fill="none"/>
+  </svg>
+  <div class="header-inner">
+    <div class="header-tag">Anima Missões — Plano de Conteúdo</div>
+    <h1>8 CARROSSÉIS<br><span>PRONTOS</span><br>PARA RODAR</h1>
+    <p>Roteiro estratégico de posts para Instagram e Facebook, com foco na Expedição Missioneira — o produto de maior ticket e maior lucro da agência.</p>
+    <div class="header-stats">
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Posts por mês</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Expedição Missioneira</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Aquecimento + outros</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- LEGEND BAR -->
+<div class="legend-bar">
+  <div class="legend-inner">
+    <div class="legend-item"><div class="dot" style="background:#c0392b"></div> Expedição Missioneira (prioridade)</div>
+    <div class="legend-item"><div class="dot" style="background:#2d7a3e"></div> Aquecimento de público</div>
+    <div class="legend-item"><div class="dot" style="background:#c9a84c"></div> Outros passeios</div>
+    <div class="legend-item"><div class="dot" style="background:#7b68ee"></div> Autoridade / Conteúdo de valor</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ESTRATÉGIA -->
+  <div class="section-label" style="margin-top:8px">Antes de tudo</div>
+  <div class="section-title">A LÓGICA DOS 8 POSTS</div>
+
+  <div class="intro-note">
+    <strong>Sobre a proporção 2–3 posts da Expedição:</strong> está certa — desde que os outros 5–6 posts estejam construindo contexto para ela, não apenas preenchendo calendário. Os posts de "aquecimento" precisam responder objeções reais (quanto custa, como chegar, vale a pena) para que quando a Expedição aparecer, o público já esteja preparado para comprar.
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-col">
+      <div class="s-num">01</div>
+      <div class="s-tag">Semanas 1 e 3</div>
+      <div class="s-title">Aquecimento<br>de Público</div>
+      <div class="s-count">3–4 posts/mês</div>
+      <div class="s-desc">Posts que educam, despertam desejo e eliminam objeções sem vender nada. Funcionam para quem ainda não conhece as Missões.</div>
+    </div>
+    <div class="strategy-col featured">
+      <div class="s-num">02</div>
+      <div class="s-tag" style="background:var(--vermelho)">Semanas 2 e 4</div>
+      <div class="s-title">Expedição<br>Missioneira</div>
+      <div class="s-count">2–3 posts/mês</div>
+      <div class="s-desc">Posts de conversão direta. O público já foi aquecido — agora você apresenta a oferta com roteiro, preço, inclusões e CTA para WhatsApp.</div>
+    </div>
+    <div class="strategy-col">
+      <div class="s-num">03</div>
+      <div class="s-tag" style="background:var(--dourado);color:var(--verde-escuro)">Esporádico</div>
+      <div class="s-title">Outros<br>Passeios</div>
+      <div class="s-count">1 post/mês</div>
+      <div class="s-desc">City Tour, Fazenda, Resgate das Origens — aparecem para diversificar sem diluir o foco no produto principal.</div>
+    </div>
+  </div>
+
+  <!-- CARROSSÉIS -->
+  <div class="section-label">Os 8 carrosséis</div>
+  <div class="section-title">ROTEIRO COMPLETO DE CONTEÚDO</div>
+
+  <div class="tipo-legend">
+    <div class="tipo-legend-item"><div class="tipo-dot" style="background:var(--vermelho)"></div> Abertura (gera parada no scroll)</div>
+    <div class="tipo-legend-item"><div class="tipo-dot" style="background:var(--verde)"></div> Conteúdo (educa e desperta desejo)</div>
+    <div class="tipo-legend-item"><div class="tipo-dot" style="background:var(--dourado)"></div> Prova social (constrói confiança)</div>
+    <div class="tipo-legend-item"><div class="tipo-dot" style="background:var(--verde-escuro)"></div> CTA (converte para WhatsApp)</div>
+    <div class="tipo-legend-item"><div class="tipo-dot" style="background:#7b68ee"></div> Diferencial (elimina objeção)</div>
+  </div>
+
+  <div class="carrosseis-grid">
+
+    <!-- CARROSSEL 1 -->
+    <div class="carousel-card">
+      <div class="card-header misto">
+        <div class="card-num">01</div>
+        <div class="card-header-info">
+          <div class="card-type">Expedição Missioneira · Conversão</div>
+          <div class="card-title">3 PAÍSES EM UMA SÓ VIAGEM</div>
+        </div>
+        <div class="card-badge exp">Prioridade #1</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon">🎯</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Mensagens no WhatsApp</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">SP + RS, 28–55 anos</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon red">💰</div>
+            <div>
+              <div class="obj-label">Melhor para impulsionar</div>
+              <div class="obj-value">Sim — ticket alto</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">5 slides do carrossel</div>
+        <div class="slides-row">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">Você sabia que dá pra visitar 3 países em uma viagem saindo do RS?</div>
+              <div class="slide-desc">Imagem das ruínas + mapa mostrando BR/AR/PY. Pergunta que gera curiosidade.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Conteúdo</div>
+              <div class="slide-headline">Dia a dia da Expedição de 5 dias</div>
+              <div class="slide-desc">Roteiro visual: Dia 1 São Miguel → Dia 3 Argentina → Dia 5 Paraguai. Simples, visual, impactante.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card diferencial">
+              <div class="slide-tipo diferencial">Diferencial</div>
+              <div class="slide-headline">O que está incluso no pacote</div>
+              <div class="slide-desc">Transporte, hospedagem, ingressos, guia. Lista visual com ícones. Elimina a dúvida "mas quanto vai custar além disso?"</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card prova">
+              <div class="slide-tipo prova">Prova social</div>
+              <div class="slide-headline">Depoimento real de quem foi</div>
+              <div class="slide-desc">Foto de cliente + frase curta. "Não esperava que fosse tão completo." Nome + cidade de origem.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">5</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">Manda "Expedição" no WhatsApp e receba o roteiro completo</div>
+              <div class="slide-desc">Fundo vermelho. Botão WhatsApp. Datas disponíveis em destaque.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida (legenda do post)</div>
+          <div class="copy-text">Brasil, Argentina e Paraguai. Uma história de 300 anos contada ao vivo. A Expedição Missioneira cobre os 3 países com tudo organizado — transporte, hospedagem e ingressos inclusos.</div>
+          <div class="copy-cta">→ Manda "Expedição" no WhatsApp e receba as datas e valores disponíveis.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip red">Impulsionar para SP</div>
+          <div class="tip">Objetivo: Mensagens</div>
+          <div class="tip gold">Post do mês: Semana 2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 2 -->
+    <div class="carousel-card">
+      <div class="card-header" style="background:var(--vermelho-escuro)">
+        <div class="card-num">02</div>
+        <div class="card-header-info">
+          <div class="card-type">Expedição Missioneira · Objeção Principal</div>
+          <div class="card-title">QUANTO CUSTA A EXPEDIÇÃO, DE VERDADE?</div>
+        </div>
+        <div class="card-badge exp">Alta conversão</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon">🎯</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Quebrar objeção de preço</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">SP — já aquecido</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">5 slides do carrossel</div>
+        <div class="slides-row">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">"Mas deve ser caro ir até as Missões de SP..."</div>
+              <div class="slide-desc">Frases que o cliente pensa mas não pergunta. Gera identificação imediata.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Conteúdo</div>
+              <div class="slide-headline">Passagem SP → Porto Alegre: como encontrar barato</div>
+              <div class="slide-desc">Dicas reais: dias da semana, antecedência, GRU vs Guarulhos. Conteúdo útil que gera salvamentos.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Conteúdo</div>
+              <div class="slide-headline">O pacote já inclui — você não paga nada além disso</div>
+              <div class="slide-desc">Lista do que está incluso vs o que a pessoa pagaria viajando por conta.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card diferencial">
+              <div class="slide-tipo diferencial">Diferencial</div>
+              <div class="slide-headline">Comparativo: agência local x conta própria</div>
+              <div class="slide-desc">Tabela simples mostrando economia real de tempo, custo e logística com a Anima.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">5</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">Te mando os valores completos no WhatsApp</div>
+              <div class="slide-desc">Sem preço no post (leva para conversa). CTA direto para WhatsApp com palavra-chave.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">Essa é a dúvida que todo mundo de SP tem antes de perguntar. Passa aqui que eu te mando tudo: passagens, pacote, o que está incluso e o que você vai gastar de verdade.</div>
+          <div class="copy-cta">→ Manda "Quanto custa" no WhatsApp.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip red">Impulsionar para SP</div>
+          <div class="tip">Objetivo: Mensagens</div>
+          <div class="tip light">Gera salvamentos orgânicos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 3 -->
+    <div class="carousel-card">
+      <div class="card-header misto">
+        <div class="card-num">03</div>
+        <div class="card-header-info">
+          <div class="card-type">Expedição Missioneira · Roteiro Visual</div>
+          <div class="card-title">5 DIAS, 3 PAÍSES: O QUE VOCÊ VAI VER</div>
+        </div>
+        <div class="card-badge exp">Salvo + compartilhado</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon">🎯</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Engajamento + Conversão</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">SP + RS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">5 slides do carrossel</div>
+        <div class="slides-row">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">O roteiro completo da Expedição Missioneira — dia por dia</div>
+              <div class="slide-desc">Foto das ruínas ao pôr do sol. Números 1–5 visíveis. Promete revelar o conteúdo.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Dia 1–2</div>
+              <div class="slide-headline">São Miguel das Missões + Espetáculo de Som e Luz</div>
+              <div class="slide-desc">Ruínas da UNESCO, City Tour, espetáculo noturno. Foto noturna das ruínas iluminadas.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Dia 3</div>
+              <div class="slide-headline">Argentina: San Ignacio Miní e Posadas</div>
+              <div class="slide-desc">Reduções argentinas, paisagens do Rio Paraná. Destaca o que muda de país para país.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Dia 4–5</div>
+              <div class="slide-headline">Paraguai: Trinidad e Jesús — reduções menos conhecidas</div>
+              <div class="slide-desc">Argumento do "exclusividade" — poucos turistas brasileiros conhecem essas reduções.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">5</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">Quer esse roteiro organizado pra você? Chama no WhatsApp</div>
+              <div class="slide-desc">Tudo incluso. Datas limitadas. CTA direto.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">300 anos de história em 5 dias. Brasil, Argentina e Paraguai — com tudo organizado, sem estresse de logística. Esse é o roteiro completo da Expedição Missioneira.</div>
+          <div class="copy-cta">→ Manda "Roteiro" no WhatsApp e te envio datas e valores.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip red">Impulsionar SP + RS</div>
+          <div class="tip gold">Melhor para carrossel visual</div>
+          <div class="tip">Semana 4</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 4 -->
+    <div class="carousel-card">
+      <div class="card-header" style="background:#1a3a4a">
+        <div class="card-num">04</div>
+        <div class="card-header-info">
+          <div class="card-type">Aquecimento · Conteúdo de valor</div>
+          <div class="card-title">POR QUE AS MISSÕES SÃO PATRIMÔNIO DA UNESCO?</div>
+        </div>
+        <div class="card-badge outro">Aquecimento</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon" style="background:#1a3a4a">📚</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Autoridade + Salvamentos</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">Frio — topo de funil</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">4 slides do carrossel</div>
+        <div class="slides-row" style="grid-template-columns: repeat(4,1fr)">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">Tem um lugar no RS que é Patrimônio Mundial da UNESCO — e a maioria dos brasileiros nunca ouviu falar</div>
+              <div class="slide-desc">Provoca curiosidade. Funciona para público frio de SP.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Conteúdo</div>
+              <div class="slide-headline">A história dos Jesuítas e dos Guaranis em 300 palavras</div>
+              <div class="slide-desc">Contexto histórico visual. Mapas, ilustrações, fotos das ruínas.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Conteúdo</div>
+              <div class="slide-headline">O que sobrou de tudo isso — e por que vale a viagem</div>
+              <div class="slide-desc">Fotos das ruínas mais impressionantes. Conecta história com experiência atual.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA suave</div>
+              <div class="slide-headline">Quer conhecer? A Anima leva você com tudo organizado</div>
+              <div class="slide-desc">CTA leve — não força venda. Planta a semente para o próximo post da Expedição.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">Em 1983, a UNESCO declarou São Miguel das Missões Patrimônio da Humanidade. Hoje, as ruínas ainda estão lá — e são um dos destinos mais impressionantes do Brasil. Passa os slides pra entender por quê.</div>
+          <div class="copy-cta">→ Quer visitar? Chama no WhatsApp: "Quero conhecer as Missões"</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip" style="background:#1a3a4a">Não impulsionar — orgânico</div>
+          <div class="tip light">Gera seguidores qualificados</div>
+          <div class="tip">Semana 1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 5 -->
+    <div class="carousel-card">
+      <div class="card-header" style="background:#2d5a1a">
+        <div class="card-num">05</div>
+        <div class="card-header-info">
+          <div class="card-type">Aquecimento · Objeção logística SP</div>
+          <div class="card-title">COMO CHEGAR NAS MISSÕES SAINDO DE SÃO PAULO</div>
+        </div>
+        <div class="card-badge outro">Top performer SP</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon" style="background:#2d5a1a">✈️</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Eliminar barreira logística</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">SP exclusivamente</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">5 slides do carrossel</div>
+        <div class="slides-row">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">"Como chego nas Missões saindo de SP?" — resposta completa aqui</div>
+              <div class="slide-desc">Avião + mapa do RS. A pergunta que todos fazem mas não encontram resposta fácil.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Opção 1</div>
+              <div class="slide-headline">Voo GRU → Porto Alegre + Transfer com a Anima</div>
+              <div class="slide-desc">Tempo, custo médio de passagem, frequência de voos. Mais cômodo.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Opção 2</div>
+              <div class="slide-headline">Voo GRU → Santo Ângelo: direto para as Missões</div>
+              <div class="slide-desc">Quando disponível — voo regional que pouca gente sabe que existe.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card diferencial">
+              <div class="slide-tipo diferencial">Diferencial</div>
+              <div class="slide-headline">A Anima busca você no aeroporto — você não se preocupa com mais nada</div>
+              <div class="slide-desc">Transfer incluso no pacote. Destaca conveniência vs viagem por conta.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">5</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">Manda "Quero ir de SP" — te ajudo a montar o roteiro completo</div>
+              <div class="slide-desc">Palavra-chave específica facilita triagem no WhatsApp.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">Essa é a dúvida número 1 de quem é de SP e quer conhecer as Missões. Voo + transfer + hospedagem: tudo o que você precisa saber está aqui — e tem como fazer em um fim de semana longo.</div>
+          <div class="copy-cta">→ Manda "Quero ir de SP" no WhatsApp que te monto o roteiro.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip red">Impulsionar para SP</div>
+          <div class="tip">Objetivo: Mensagens</div>
+          <div class="tip gold">Semana 1 ou 3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 6 -->
+    <div class="carousel-card">
+      <div class="card-header" style="background:#5a3a0a">
+        <div class="card-num">06</div>
+        <div class="card-header-info">
+          <div class="card-type">Outros passeios · RS</div>
+          <div class="card-title">PACOTE DE FIM DE SEMANA NAS MISSÕES — TUDO INCLUSO</div>
+        </div>
+        <div class="card-badge" style="background:var(--dourado);color:var(--verde-escuro)">Foco RS</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon" style="background:#5a3a0a">🏨</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Conversão público RS</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">RS, 28–60 anos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">4 slides do carrossel</div>
+        <div class="slides-row" style="grid-template-columns:repeat(4,1fr)">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">Fim de semana nas Missões: o que cabe em 2 dias com tudo incluso?</div>
+              <div class="slide-desc">Promete revelar o conteúdo. Foco em conveniência para público do RS.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Sábado</div>
+              <div class="slide-headline">Ruínas + almoço típico + Som e Luz à noite</div>
+              <div class="slide-desc">Itinerário do City Tour Anjos e Relíquias. Visual com horários.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Domingo</div>
+              <div class="slide-headline">Reduções vizinhas + vinícola + retorno tranquilo</div>
+              <div class="slide-desc">Opção de adicionar Fazenda São José. Flexibilidade do pacote.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">Hospedagem + passeios + guia: tudo organizado. Chama no WhatsApp</div>
+              <div class="slide-desc">"Você só precisa chegar" — destaca conveniência total.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">Sexta à noite você sai de casa. Domingo à noite você volta. No meio: ruínas, história, boa comida e espetáculo de Som e Luz. Tudo organizado — você só precisa aparecer.</div>
+          <div class="copy-cta">→ Manda "Fim de semana" no WhatsApp que te mando datas e valores.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip" style="background:#5a3a0a">Impulsionar para RS</div>
+          <div class="tip">Objetivo: Mensagens</div>
+          <div class="tip light">Semana 2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 7 -->
+    <div class="carousel-card">
+      <div class="card-header" style="background:#1a4a5a">
+        <div class="card-num">07</div>
+        <div class="card-header-info">
+          <div class="card-type">Autoridade · Prova social</div>
+          <div class="card-title">5 MOTIVOS PRA NÃO TENTAR FAZER ESSE ROTEIRO POR CONTA</div>
+        </div>
+        <div class="card-badge outro">Autoridade</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon" style="background:#1a4a5a">🧠</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Eliminar objeção "faço sozinho"</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">SP + RS — Consideração</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">5 slides do carrossel</div>
+        <div class="slides-row">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">Pensei em fazer o roteiro das Missões sozinho. Não faça isso.</div>
+              <div class="slide-desc">Tom de "aprendi da forma difícil". Gera curiosidade imediata.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Motivo 1–2</div>
+              <div class="slide-headline">Distâncias entre as reduções não são óbvias — você perde tempo</div>
+              <div class="slide-desc">Argentina + Paraguai: fronteiras, documentação, horários de abertura dos sítios.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Motivo 3–4</div>
+              <div class="slide-headline">Sem guia, você vê pedras. Com guia, você entende a história</div>
+              <div class="slide-desc">Destaca o diferencial do guia local especializado. Muda o valor percebido.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card conteudo">
+              <div class="slide-tipo conteudo">Motivo 5</div>
+              <div class="slide-headline">O custo "do jeito próprio" sai mais caro do que parece</div>
+              <div class="slide-desc">Comparativo honesto de custos. Transparência gera confiança.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">5</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">A Anima já organizou esse roteiro centenas de vezes — deixa com a gente</div>
+              <div class="slide-desc">Prova social implícita. CTA para WhatsApp com palavra "Roteiro".</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">Visitar 3 países parece simples no Google Maps. Na prática, tem fronteira, documentação, sítios que fecham no almoço e estrada que você não esperava. Passa os slides antes de tentar fazer por conta.</div>
+          <div class="copy-cta">→ Prefere ter tudo resolvido? Manda "Quero a Expedição" no WhatsApp.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip red">Impulsionar SP + RS</div>
+          <div class="tip light">Semana 3</div>
+          <div class="tip gold">Alto potencial de compartilhamento</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL 8 -->
+    <div class="carousel-card">
+      <div class="card-header" style="background:#3a1a4a">
+        <div class="card-num">08</div>
+        <div class="card-header-info">
+          <div class="card-type">Expedição Missioneira · Urgência</div>
+          <div class="card-title">DATAS DISPONÍVEIS: PRÓXIMAS EXPEDIÇÕES MISSIONEIRAS</div>
+        </div>
+        <div class="card-badge exp">Urgência + Conversão</div>
+      </div>
+      <div class="card-body">
+        <div class="objetivo-row">
+          <div class="objetivo-item">
+            <div class="obj-icon" style="background:#3a1a4a">📅</div>
+            <div>
+              <div class="obj-label">Objetivo</div>
+              <div class="obj-value">Fechar vendas em aberto</div>
+            </div>
+          </div>
+          <div class="objetivo-item">
+            <div class="obj-icon">👤</div>
+            <div>
+              <div class="obj-label">Público</div>
+              <div class="obj-value">Leads já aquecidos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slides-title">4 slides do carrossel</div>
+        <div class="slides-row" style="grid-template-columns:repeat(4,1fr)">
+          <div class="slide-item">
+            <div class="slide-num">1</div>
+            <div class="slide-card abertura">
+              <div class="slide-tipo abertura">Abertura</div>
+              <div class="slide-headline">Expedições confirmadas — vagas abertas para os próximos meses</div>
+              <div class="slide-desc">Calendário visual com as datas. Urgência real, não fabricada.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">2</div>
+            <div class="slide-card diferencial">
+              <div class="slide-tipo diferencial">Detalhe</div>
+              <div class="slide-headline">5 dias ou 7 dias — qual faz mais sentido pra você?</div>
+              <div class="slide-desc">Diferença entre os dois pacotes de forma visual e direta.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">3</div>
+            <div class="slide-card prova">
+              <div class="slide-tipo prova">Prova social</div>
+              <div class="slide-headline">"Fui na expedição de março. Volta garantida." — Carla, SP</div>
+              <div class="slide-desc">Depoimento curto e real. Foto da cliente se possível.</div>
+            </div>
+          </div>
+          <div class="slide-item">
+            <div class="slide-num">4</div>
+            <div class="slide-card cta">
+              <div class="slide-tipo cta">CTA</div>
+              <div class="slide-headline">Vagas limitadas por expedição. Garante a sua agora no WhatsApp</div>
+              <div class="slide-desc">Número de vagas restantes se possível. Urgência genuína.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-label">Copy sugerida</div>
+          <div class="copy-text">As próximas expedições já têm data confirmada. Cada saída tem vagas limitadas — quando enche, enche. Se você estava pensando em ir, esse é o momento de garantir.</div>
+          <div class="copy-cta">→ Manda "Quero garantir minha vaga" no WhatsApp.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip red">Impulsionar SP + RS</div>
+          <div class="tip">Objetivo: Mensagens</div>
+          <div class="tip" style="background:#3a1a4a">Atualizar datas mensalmente</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CALENDÁRIO -->
+  <div class="divider"></div>
+  <div class="calendar-section">
+    <div class="section-label">Calendário sugerido</div>
+    <div class="section-title">DISTRIBUIÇÃO DOS 8 POSTS NO MÊS</div>
+
+    <div class="calendar-grid">
+      <div class="cal-cell">
+        <div class="cal-week">Semana 1</div>
+        <div class="cal-post-num">02</div>
+        <div><span class="cal-post-tag outros">Aquecimento</span></div>
+        <div class="cal-post-title">Como chegar nas Missões saindo de SP</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-week">Semana 1</div>
+        <div class="cal-post-num">04</div>
+        <div><span class="cal-post-tag outros">Autoridade</span></div>
+        <div class="cal-post-title">Por que as Missões são Patrimônio da UNESCO?</div>
+      </div>
+      <div class="cal-cell" style="background:#fff8f8">
+        <div class="cal-week">Semana 2</div>
+        <div class="cal-post-num">01</div>
+        <div><span class="cal-post-tag exp">Expedição</span></div>
+        <div class="cal-post-title">3 países em uma só viagem</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-week">Semana 2</div>
+        <div class="cal-post-num">06</div>
+        <div><span class="cal-post-tag outros">RS</span></div>
+        <div class="cal-post-title">Pacote de fim de semana — tudo incluso</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-week">Semana 3</div>
+        <div class="cal-post-num">05</div>
+        <div><span class="cal-post-tag outros">SP</span></div>
+        <div class="cal-post-title">Quanto custa a Expedição, de verdade?</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-week">Semana 3</div>
+        <div class="cal-post-num">07</div>
+        <div><span class="cal-post-tag outros">Autoridade</span></div>
+        <div class="cal-post-title">5 motivos pra não ir por conta</div>
+      </div>
+      <div class="cal-cell" style="background:#fff8f8">
+        <div class="cal-week">Semana 4</div>
+        <div class="cal-post-num">03</div>
+        <div><span class="cal-post-tag exp">Expedição</span></div>
+        <div class="cal-post-title">5 dias, 3 países: o que você vai ver</div>
+      </div>
+      <div class="cal-cell" style="background:#fff8f8">
+        <div class="cal-week">Semana 4</div>
+        <div class="cal-post-num">08</div>
+        <div><span class="cal-post-tag exp">Expedição</span></div>
+        <div class="cal-post-title">Datas disponíveis — vagas abertas</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-title">Uma coisa que a maioria ignora nesse plano</div>
+        <div class="alert-text">Os carrosséis 1, 3 e 8 são os que devem receber verba de impulsionamento — são os de conversão direta para a Expedição. Os outros funcionam melhor como orgânico para construir audiência que retargeta nos anúncios pagos. Gastar verba em posts de "autoridade" e "aquecimento" só faz sentido depois que você tiver pelo menos 300–500 pessoas no pixel do site ou retargeting de vídeo. Antes disso, todo centavo vai para os 3 posts da Expedição com objetivo "Mensagens no WhatsApp".</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">ANIMA <span>MISSÕES</span></div>
+  <p>Plano de carrosséis — animamissoes.com.br</p>
+</footer>
+
+</body>
+</html>
